@@ -1,4 +1,9 @@
-Immutable Patch
+Immutable Patch 2
+
+extends immutablepatch@0.5.0
+
+fix: Remove the exception that an empty object property value becomes null
+
 ====
 
 Apply RFC 6902 style patches to Immutable.JS data structures, such as `Maps`, `Lists`, and `Sets`.
