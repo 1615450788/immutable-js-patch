@@ -72,7 +72,9 @@ var sequencePatch = function(sequence, firstPath, restPath, op, value) {
     }
   } else if (op === 'remove') {
     if (restPath.length > 0) {
-      return sequence.set(firstPath, anyPatch(sequence.get(firstPath), restPath, op, value));
+      const result = anyPatch(sequence.get(firstPath), restPath, op, value);
+      return result===null ? sequence:sequence.set(firstPath, result);
+      // return sequence.set(firstPath, anyPatch(sequence.get(firstPath), restPath, op, value));
     } else {
       return sequence.remove(firstPath);
     }
@@ -111,6 +113,7 @@ var anyPatch = function(any, pathArray, op, value) {
 
 var eachPatchInternal = function(value, patches) {
   while (patches.size) {
+    
     var firstPatch = patches.get(0);
     var patches = patches.slice(1);
     var pathArray = firstPatch.get('path').split('/').slice(1).map(path.unescape);

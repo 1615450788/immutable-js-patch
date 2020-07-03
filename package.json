@@ -10,7 +10,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "jest"
   },
   "keywords": [
     "immutable.js",

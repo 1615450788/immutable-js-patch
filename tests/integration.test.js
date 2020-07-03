@@ -22,16 +22,6 @@ describe('replacing root value', function() {
 describe('Map patch', function() {
   var failure = null;
 
-  before(function(){
-    JSC.on_report(function(report){
-      console.log(report);
-    });
-
-    JSC.on_fail(function(jsc_failure){
-      failure = jsc_failure;
-    });
-  });
-
   afterEach(function () {
     if(failure){
       console.error(failure);
